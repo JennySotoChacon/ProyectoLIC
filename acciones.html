@@ -95,7 +95,10 @@
               <h3>Depositar</h3>
               <p>Registrar un deposito a cuenta</p>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Depositar</a>
+                  <!-- Boton que abre el modal de depositos -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#depositoModal">
+                    Depositar
+                  </button>
               </div>
             </div>
           </div>
@@ -105,17 +108,11 @@
               <h3>Retiro</h3>
               <p>Registrar un retiro de la cuenta</p>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Retirar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box featured" data-aos="fade-up" data-aos-delay="200">
-              <h3>Consultar Saldo</h3>
-              <p>Realizar consulta del saldo en la cuenta</p>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Consultar Saldo</a>
+                <!-- Boton que abre el modal de Retiros -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#retiroModal">
+                  Retiro
+                </button>
+                
               </div>
             </div>
           </div>
@@ -124,9 +121,10 @@
             <div class="box featured" data-aos="fade-up" data-aos-delay="300">
               <h3>Pagar Servicios</h3>
               <p>Realizar pago de servicios</p>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Pagar servicios</a>
-              </div>
+              <!-- Boton que abre el modal de depositos -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#PagoServiciosModal">
+                Pago de servicios
+              </button>
             </div>
           </div>
 
@@ -140,27 +138,117 @@
     <section id="faq" class="faq section-bg">
       <div class="container">
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Launch demo modal
-        </button>
+      
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal Deposito -->
+        <div class="modal fade" id="depositoModal" tabindex="-1" role="dialog" aria-labelledby="depositoModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="depositoModalLabel">Modal title</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                ...
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Descripción</label>
+                            <input class="form-control" id="descripcion" type="text" placeholder="Descripción" required="required" data-validation-required-message="Por favor, agregue una descripción." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Monto</label>
+                            <input class="form-control" id="monto" type="text" placeholder="Monto" required="required" data-validation-required-message="Por favor, agregue un monto." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit"  onclick="RegistraTransaccion(1)" class="btn btn-primary">Realizar deposito</button>
+                <!--<div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit" onclick="RegistraTransaccion()">Registrar</button></div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+         <!-- Modal retiro -->
+         <div class="modal fade" id="retiroModal" tabindex="-1" role="dialog" aria-labelledby="retiroModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="retiroModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label>Descripción</label>
+                        <input class="form-control" id="descripcion" type="text" placeholder="Descripción" required="required" data-validation-required-message="Por favor, agregue una descripción." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label>Monto</label>
+                        <input class="form-control" id="monto" type="text" placeholder="Monto" required="required" data-validation-required-message="Por favor, agregue un monto." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit"  onclick="RegistraTransaccion(2)" class="btn btn-primary">Realizar deposito</button>
+                <!--<div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit" onclick="RegistraTransaccion()">Registrar</button></div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Pago de servicios -->
+        <div class="modal fade" id="PagoServiciosModal" tabindex="-1" role="dialog" aria-labelledby="PagoServiciosModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="PagoServiciosLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <select class="form-control" ID="TipoTransaccion">
+                      <option value = "0">-- Seleccione el servicio</option>
+                      <option value = "1">Energía Electrica</option>
+                      <option value = "2">Agua potable</option>
+                  </select>
+                  <div class="dropDownSelect2"></div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label>Monto</label>
+                        <input class="form-control" id="monto" type="text" placeholder="Monto" required="required" data-validation-required-message="Por favor, agregue un monto." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                      <label>Notas</label>
+                      <input class="form-control" id="descripcion" type="text" placeholder="Descripción" required="required" data-validation-required-message="Por favor, agregue una descripción." />
+                      <p class="help-block text-danger"></p>
+                  </div>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" onclick="RegistraTransaccion(2)" class="btn btn-primary">Realizar deposito</button>
+                <!--<div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit" onclick="RegistraTransaccion()">Registrar</button></div>-->
               </div>
             </div>
           </div>
@@ -203,6 +291,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- Template Main JS Fileo -->
+  <script src="assets/js/scripts.js"></script>
 </body>
 
 </html>

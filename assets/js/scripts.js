@@ -137,32 +137,33 @@ function RegistraTransaccion(tipoTransaccion){
 
 // Para gráfica
 
-var speedCanvas = document.getElementById("speedChart");
-
-Chart.defaults.global.defaultFontFamily = "Lato";
-Chart.defaults.global.defaultFontSize = 18;
-
-var speedData = {
-  labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
-  datasets: [{
-    label: "Car Speed (mph)",
-    data: [0, 59, 75, 20, 20, 55, 40],
-  }]
-};
-
-var chartOptions = {
-  legend: {
-    display: true,
-    position: 'top',
-    labels: {
-      boxWidth: 80,
-      fontColor: 'black'
+/*<script type="text/javascript">
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+       type: 'bar',
+          data: {
+             labels: ["Noviembre", "Diciembre" , "Enero" , "Febrero", "Marzo"],
+             datasets: [
+                { label: 'Ingresos por mes',
+                data: [5000,8000,10000,12200,15000],
+                backgroundColor :['rgba(255, 129, 102, 1)',
+                'rgba(234, 162, 235, 1)',
+                'rgba(255, 206, 36, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+             ],
+          }
+       ]
+    },
+    options: {
+       scales: {
+          yAxes: [{
+             ticks: {
+                beginAtZero:true
+             }
+          }]
+       }
     }
-  }
-};
-
-var lineChart = new Chart(speedCanvas, {
-  type: 'line',
-  data: speedData,
-  options: chartOptions
-});
+ });
+ </script>
+*/
